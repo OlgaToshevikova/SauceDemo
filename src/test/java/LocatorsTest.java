@@ -47,7 +47,7 @@ By.xpath("//tag[contains(text(),'text')]");
 
 public class LocatorsTest {
     @Test
-    public void CheckLocators(){
+    public void checkLocators() {
         ChromeOptions options = new ChromeOptions();
         HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("credentials_enable_service", false);
@@ -61,16 +61,16 @@ public class LocatorsTest {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
-driver.findElement(By.className("submit-button")).click();
-driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-driver.findElement(By.className("header_container"));
-driver.findElement(By.tagName("select"));
-driver.findElement(By.linkText("Twitter"));
-driver.findElement(By.partialLinkText("Linked"));
+        driver.findElement(By.className("submit-button")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(By.className("header_container"));
+        driver.findElement(By.tagName("select"));
+        driver.findElement(By.linkText("Twitter"));
+        driver.findElement(By.partialLinkText("Linked"));
 //XPath
         driver.findElement(By.xpath("//img[@alt='Sauce Labs Backpack']"));
         driver.findElement(By.xpath("//a [text()='Twitter']"));
-       driver.findElement(By.xpath("//img[contains(@alt,'Backpack')]"));
+        driver.findElement(By.xpath("//img[contains(@alt,'Backpack')]"));
         driver.findElement(By.xpath("//a [contains(text(),'Twitt')]"));
         driver.findElement(By.xpath("//img[contains(@alt,'Backpack')]//ancestor::div"));
         driver.findElement(By.xpath("//a[@id='item_4_img_link']//descendant::img"));
@@ -91,5 +91,6 @@ driver.findElement(By.partialLinkText("Linked"));
         driver.findElement(By.cssSelector("[href^='https']"));
         driver.findElement(By.cssSelector("[class$='logo']"));
         driver.findElement(By.cssSelector("[id*='button']"));
+        driver.quit();
     }
 }

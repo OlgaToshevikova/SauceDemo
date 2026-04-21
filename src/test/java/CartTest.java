@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 public class CartTest {
     @Test
-    public void CheckCart() {
+    public void checkCart() {
         ChromeOptions options = new ChromeOptions();
         HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("credentials_enable_service", false);
