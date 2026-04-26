@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.WebDriver;
 
 public class BasePage {
@@ -8,8 +7,9 @@ public class BasePage {
     }
 
     WebDriver driver;
-public final String BASE_URL="https://www.saucedemo.com/";
-public void open(){
-    driver.get(BASE_URL);
-}
+    public final String BASE_URL = "https://www.saucedemo.com/";
+
+    public void open() {
+        driver.get(BASE_URL);
+    }
 }

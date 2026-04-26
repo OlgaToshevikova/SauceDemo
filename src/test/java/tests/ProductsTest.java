@@ -1,5 +1,4 @@
 package tests;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,5 +12,9 @@ public class ProductsTest extends BaseTest {
 
     public void checkChangingButtonAddTOCart() {
         Assert.assertEquals(productsPage.checkChangesOfButtonAddToCart(), "Remove");
+    }
+
+    public void checkChangingButtonRemove() {
+        Assert.assertEquals(productsPage.checkChangesOfButtonRemove(), "Add to cart");
     }
 }

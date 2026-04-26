@@ -1,5 +1,4 @@
 package tests;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,17 +7,18 @@ import org.testng.annotations.BeforeMethod;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
-
 import java.util.HashMap;
 
 public class BaseTest {
     WebDriver driver;
-LoginPage loginPage;
-ProductsPage productsPage;
-CartPage cartPage;
+    LoginPage loginPage;
+    ProductsPage productsPage;
+    CartPage cartPage;
+    LocatorsTest locatorsTest;
+
 
     @BeforeMethod
-    public void init(){
+    public void init() {
         ChromeOptions options = new ChromeOptions();
         HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("credentials_enable_service", false);
@@ -30,15 +30,13 @@ CartPage cartPage;
         options.addArguments("--disable-infobars");
         driver = new ChromeDriver(options);
 
-        loginPage=new LoginPage(driver);
-        productsPage=new ProductsPage(driver);
-        cartPage=new CartPage(driver);
+        loginPage = new LoginPage(driver);
+        productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
     }
 
-
-
-    @AfterMethod (alwaysRun = true)
-    public void tearDawn(){
+    @AfterMethod(alwaysRun = true)
+    public void tearDawn() {
         driver.quit();
     }
 }

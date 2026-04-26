@@ -1,9 +1,6 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v145.audits.model.SRIMessageSignatureError;
 
 public class LoginPage extends BasePage {
 
@@ -17,7 +14,7 @@ public class LoginPage extends BasePage {
     }
 
     public void open() {
-        driver.get(BASE_URL + "/inventory.html");
+        driver.get(BASE_URL);
     }
 
     public void login(String user, String password) {
