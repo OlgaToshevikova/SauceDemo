@@ -5,7 +5,7 @@
        parallel="classes">
 
     <listeners>
-        <listener class-name="tests.RetryTransformer"/>
+        <listener class-name="utils.RetryTransformer"/>
     </listeners>
 
     <test name="Chrome">
