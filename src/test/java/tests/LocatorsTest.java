@@ -49,7 +49,8 @@ By.xpath("//tag[contains(text(),'text')]");
  */
 
 public class LocatorsTest extends BaseTest {
-    @Test
+    @Test(testName = "Локаторы",
+            description = "Практика написания локаторов")
     public void checkLocators() {
         loginPage.open();
         driver.findElement(By.id("user-name")).sendKeys("standard_user");

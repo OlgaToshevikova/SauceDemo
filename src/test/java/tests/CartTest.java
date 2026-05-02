@@ -15,7 +15,8 @@ import java.time.Duration;
  */
 
 public class CartTest extends BaseTest {
-    @Test
+    @Test(testName = "Добавление/удаление товара из корзины",
+            description = "Пользовательский путь добавления/удаления товара из корзины")
     public void checkCart() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
