@@ -42,12 +42,9 @@ public class ProductsTest extends BaseTest {
     public void checkChangingButtonAddTOCart() {
         loginPage.openLoginPage()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce");
+                .login(user, password);
 
         Assert.assertEquals(productsPage.checkChangesOfButtonAddToCart("Sauce Labs Backpack"), "Remove");
-        loginPage.open();
-        loginPage.login(user, password);
-        Assert.assertEquals(productsPage.checkChangesOfButtonAddToCart(), "Remove");
     }
 
     @Test(testName = "Кнопка \"Remove\" при нажатии",
@@ -64,13 +61,8 @@ public class ProductsTest extends BaseTest {
     public void checkChangingButtonRemove() {
         log.info("check Changing Button Remove");
         loginPage.openLoginPage()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .addIoCart("Sauce Labs Backpack");
         Assert.assertEquals(productsPage.checkChangesOfButtonRemove("Sauce Labs Backpack"), "Add to cart");
-        loginPage.open();
-        loginPage.open();
-        loginPage.login(user, password);
-        productsPage.addIoCart();
-        Assert.assertEquals(productsPage.checkChangesOfButtonRemove(), "Add to cart");
     }
 }

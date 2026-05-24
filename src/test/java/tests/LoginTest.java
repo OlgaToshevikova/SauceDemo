@@ -22,11 +22,9 @@ public class LoginTest extends BaseTest {
     @TmsLink("NGR-141")
     @Owner("Я")
     public void checkLoginWithCorrectCred() {
-        log.info("Login with correct creds user '\"standard_user\"' and password '\"secret_sauce\"'");
+        log.info("Login with correct creds user  and password ");
         loginPage.open()
                 .isPageOpened();
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.open();
         loginPage.login(user, password);
         Assert.assertEquals(productsPage.getTitle(), "Products");
     }

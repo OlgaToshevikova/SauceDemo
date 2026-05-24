@@ -32,13 +32,9 @@ public class CartTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         loginPage.openLoginPage()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .addIoCart("Sauce Labs Backpack");//Добавляем рюкзак в корзину
         cartPage.openCartPage();
-        loginPage.open();
-        loginPage.login(user, password);
-        productsPage.addIoCart();//Добавляем рюкзак в корзину
-        cartPage.open();//Открываем страницу корзины
         softAssert.assertEquals(cartPage.getItem(), "Sauce Labs Backpack");//Проверяем, что в корзине есть рюкзак
         cartPage.removeFromCart();//Удаляем рюкзак из корзины
         softAssert.assertTrue(cartPage.checkIsCartEmpty());
