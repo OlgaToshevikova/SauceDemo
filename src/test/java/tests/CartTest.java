@@ -20,7 +20,7 @@ public class CartTest extends BaseTest {
     public void checkCart() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addIoCart();//Добавляем рюкзак в корзину
         cartPage.open();//Открываем страницу корзины
         softAssert.assertEquals(cartPage.getItem(), "Sauce Labs Backpack");//Проверяем, что в корзине есть рюкзак

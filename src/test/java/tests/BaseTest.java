@@ -24,6 +24,9 @@ public class BaseTest {
     CartPage cartPage;
     LocatorsTest locatorsTest;
 
+    protected String user=System.getProperty("user");
+    protected String password=System.getProperty("password");
+
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
     public void init(@Optional("chrome") String browser) {

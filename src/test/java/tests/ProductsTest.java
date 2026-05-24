@@ -9,7 +9,7 @@ public class ProductsTest extends BaseTest {
     )
     public void checkProductsPage() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         Assert.assertEquals(productsPage.checkAmountOfItemsOnPage(), 6);
     }
 
@@ -18,7 +18,7 @@ public class ProductsTest extends BaseTest {
     )
     public void checkChangingButtonAddTOCart() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         Assert.assertEquals(productsPage.checkChangesOfButtonAddToCart(), "Remove");
     }
 
@@ -28,7 +28,7 @@ public class ProductsTest extends BaseTest {
     public void checkChangingButtonRemove() {
         loginPage.open();
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addIoCart();
         Assert.assertEquals(productsPage.checkChangesOfButtonRemove(), "Add to cart");
     }
