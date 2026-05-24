@@ -26,6 +26,8 @@ public class LoginTest extends BaseTest {
         loginPage.open()
                 .isPageOpened();
         loginPage.login("standard_user", "secret_sauce");
+        loginPage.open();
+        loginPage.login(user, password);
         Assert.assertEquals(productsPage.getTitle(), "Products");
     }
 
@@ -43,7 +45,7 @@ public class LoginTest extends BaseTest {
     public void checkLoginWithEmptyPassword() {
         log.info("Login with empty password");
         loginPage.open();
-        loginPage.login("standard_user", "");
+        loginPage.login(user, "");
         Assert.assertEquals(loginPage.getErrorMessage(), "Epic sadface: Password is required");
     }
 
@@ -54,7 +56,7 @@ public class LoginTest extends BaseTest {
     public void checkLoginWithEmptyUserName() {
         log.info("Login with empty name");
         loginPage.open();
-        loginPage.login("", "secret_sauce");
+        loginPage.login("", password);
         Assert.assertEquals(loginPage.getErrorMessage(), "Epic sadface: Username is required");
     }
 
@@ -72,8 +74,8 @@ public class LoginTest extends BaseTest {
     @DataProvider(name = "Данные для негативного логина")
     public Object[][] loginData() {
         return new Object[][]{
-                {"standard_user", "", "Epic sadface: Password is required"},
-                {"", "secret_sauce", "Epic sadface: Username is required"},
+                {user, "", "Epic sadface: Password is required"},
+                {"", password, "Epic sadface: Username is required"},
                 {"test", "rest", "Epic sadface: Username and password do not match any user in this service"}
         };
     }
