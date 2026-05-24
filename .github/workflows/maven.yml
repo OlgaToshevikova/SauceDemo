@@ -36,7 +36,7 @@ jobs:
         run: mvn clean -Duser=$USER -Dpassword=$PASSWORD test
 
       - name: Get Allure history
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         if: always()
         continue-on-error: true
         with:
@@ -44,7 +44,7 @@ jobs:
           path: gh-pages
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@v1
+        uses: simple-elf/allure-report-action@master
         if: always()
         with:
           allure_results: target/allure-results
@@ -56,4 +56,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          PUBLISH_DIR: allure-historyhistory
