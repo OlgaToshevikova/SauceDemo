@@ -14,6 +14,7 @@ import org.testng.annotations.Parameters;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import utils.PropertyReader;
 
 import java.util.HashMap;
 
@@ -24,8 +25,8 @@ public class BaseTest {
     CartPage cartPage;
     LocatorsTest locatorsTest;
 
-    protected String user=System.getProperty("user");
-    protected String password=System.getProperty("password");
+    protected String user=System.getProperty("user", PropertyReader.getProperty("user"));
+    protected String password=System.getProperty("password",PropertyReader.getProperty("password"));
 
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
