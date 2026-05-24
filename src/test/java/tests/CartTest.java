@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,10 +16,25 @@ import java.time.Duration;
  */
 
 public class CartTest extends BaseTest {
-    @Test(testName = "Добавление/удаление товара из корзины",
-            description = "Пользовательский путь добавления/удаления товара из корзины")
+
+    @Test(testName = "Добавление/удаление товара из корзины")
+    @Epic("E2E")
+    @Feature("checkCartUserRoute")
+    @Story("Positive CartAction")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link("https://github.com/allure-framework/allure-maven")
+    @TmsLink("NGR-147")
+    @Issue("BFR-475")
+    @Flaky
+    @Owner("Я")
+    @Description("Добавление/удаление товара из корзины")
     public void checkCart() {
         SoftAssert softAssert = new SoftAssert();
+        loginPage.openLoginPage()
+                .isPageOpened()
+                .login("standard_user", "secret_sauce")
+                .addIoCart("Sauce Labs Backpack");//Добавляем рюкзак в корзину
+        cartPage.openCartPage();
         loginPage.open();
         loginPage.login(user, password);
         productsPage.addIoCart();//Добавляем рюкзак в корзину
